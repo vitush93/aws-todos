@@ -1,0 +1,10 @@
+{
+  "name": "cdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@qest/aws-cdk-utils": "^0.0.17",
+    "aws-cdk": "^1.15.0"
+  }
+}

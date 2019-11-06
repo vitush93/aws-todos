@@ -1,0 +1,51 @@
+{
+  "name": "aws-devstack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "prettier:run": "prettier all --write \"src/**/*.ts\"",
+    "prettier:check": "prettier all -l \"src/**/*.ts\"",
+    "tslint:run": "tslint --fix -c tslint.json -p .",
+    "tslint:check": "tslint -c tslint.json -p .",
+    "tsc:check": "tsc --noEmit",
+    "code:fix": "concurrently \"yarn tslint:run\" \"yarn prettier:run\"",
+    "code:check": "concurrently \"yarn prettier:check\" \"yarn tslint:check\" \"yarn tsc:check\"",
+    "build": "rimraf dist/ && node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js",
+    "dev": "cross-env NODE_ENV=dev nodemon -e ts --exec \"ts-node -r dotenv/config bin/apollo-local.ts dotenv_config_path=./env/.env.local \""
+  },
+  "dependencies": {
+    "@qest/error-utils": "^0.0.3",
+    "apollo-server-lambda": "^2.9.7",
+    "graphql-tag": "^2.10.1",
+    "moment": "^2.24.0",
+    "ramda": "^0.26.1",
+    "uuid": "^3.3.3",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.34",
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^12.12.6",
+    "@types/ramda": "^0.26.33",
+    "apollo-server": "^2.9.7",
+    "aws-sdk": "^2.564.0",
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.4.1",
+    "tsc": "^1.20150623.0",
+    "tslib": "^1.10.0",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
