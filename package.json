@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@qest/error-utils": "^0.0.3",
-    "apollo-server-lambda": "^2.9.7",
+    "apollo-server-lambda": "^2.14.2",
     "graphql-tag": "^2.10.1",
     "moment": "^2.24.0",
     "ramda": "^0.26.1",
